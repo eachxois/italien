@@ -1,0 +1,17 @@
+{
+  "name": "Italien Shop",
+  "short_name": "ItalienShop",
+  "description": "Plateforme commerciale Italien Shop",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc3545",
+  "icons": [
+    {
+      "src": "6AC676C8-BF3C-44E5-9A38-3E7BE943DF78.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
