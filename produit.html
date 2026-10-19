@@ -9,7 +9,6 @@
     <style>
         body { background: #ffffff; font-family: 'Segoe UI', sans-serif; color: #333; }
         .card-vip { background: #fffcfc; border-radius: 15px; border: 1px solid #ffe8e8; }
-        /* Changement de la couleur orange vers le rouge */
         .btn-buy { background: #dc3545; color: white; border-radius: 8px; font-weight: bold; transition: 0.3s; }
         .btn-buy:active { transform: scale(0.95); opacity: 0.8; }
         .stats-header { background: #dc3545; border-radius: 12px; color: white; }
@@ -18,7 +17,7 @@
 </head>
 <body class="pb-32">
 
-    <!-- Image d'en-tête modifiée -->
+    <!-- Image d'en-tête -->
     <div class="w-full h-44 overflow-hidden shadow-sm">
         <img src="IMG_5327.jpeg" class="w-full h-full object-cover">
     </div>
@@ -26,7 +25,6 @@
     <div class="px-4 mt-4">
         <div class="stats-header p-4 flex items-center justify-between shadow-lg">
             <div class="flex items-center">
-                <!-- Image d'en-tête utilisée aussi comme icône profil -->
                 <img src="IMG_5327.jpeg" class="w-12 h-12 rounded-lg object-cover mr-3 border-2 border-white">
                 <div class="text-left">
                     <p id="userBalance" class="font-black text-lg italic">FC ...</p>
@@ -70,20 +68,21 @@
         const DB_URL = "https://alibaba-f22a0-default-rtdb.firebaseio.com/users";
         const userPhone = localStorage.getItem('userPhone');
 
+        // Liste mise à jour : l'ancien VIP 1 (8000 FC) est supprimé
+        // L'ancien VIP 2 (20 000 FC) devient le VIP 1, etc.
         const vips = [
-            { id: 1, prix: 8000, jour: 2300, img: "IMG_3927.jpeg" },
-            { id: 2, prix: 20000, jour: 5200, img: "IMG_3928.jpeg" },
-            { id: 3, prix: 50000, jour: 13500, img: "IMG_3929.jpeg" },
-            { id: 4, prix: 75000, jour: 19000, img: "IMG_3930.jpeg" },
-            { id: 5, prix: 100000, jour: 28000, img: "IMG_3931.jpeg" },
-            { id: 6, prix: 150000, jour: 42000, img: "IMG_3932.jpeg" },
-            { id: 7, prix: 280000, jour: 77000, img: "IMG_3933.jpeg" },
-            { id: 8, prix: 400000, jour: 96000, img: "IMG_3934.jpeg" },
-            { id: 9, prix: 700000, jour: 148000, img: "IMG_3935.jpeg" },
-            { id: 10, prix: 1000000, jour: 258000, img: "IMG_3936.jpeg" },
-            { id: 11, prix: 3000000, jour: 950000, img: "IMG_3937.jpeg" },
-            { id: 12, prix: 7500000, jour: 1850000, img: "IMG_3938.jpeg" },
-            { id: 13, prix: 10200000, jour: 2500000, img: "IMG_3939.jpeg" }
+            { id: 1, prix: 20000, jour: 5200, img: "IMG_3928.jpeg" },
+            { id: 2, prix: 50000, jour: 13500, img: "IMG_3929.jpeg" },
+            { id: 3, prix: 75000, jour: 19000, img: "IMG_3930.jpeg" },
+            { id: 4, prix: 100000, jour: 28000, img: "IMG_3931.jpeg" },
+            { id: 5, prix: 150000, jour: 42000, img: "IMG_3932.jpeg" },
+            { id: 6, prix: 280000, jour: 77000, img: "IMG_3933.jpeg" },
+            { id: 7, prix: 400000, jour: 96000, img: "IMG_3934.jpeg" },
+            { id: 8, prix: 700000, jour: 148000, img: "IMG_3935.jpeg" },
+            { id: 9, prix: 1000000, jour: 258000, img: "IMG_3936.jpeg" },
+            { id: 10, prix: 3000000, jour: 950000, img: "IMG_3937.jpeg" },
+            { id: 11, prix: 7500000, jour: 1850000, img: "IMG_3938.jpeg" },
+            { id: 12, prix: 10200000, jour: 2500000, img: "IMG_3939.jpeg" }
         ];
 
         async function fetchInfo() {
@@ -118,18 +117,20 @@
 
             if (activeVipId) {
                 const myVip = vips.find(v => v.id == activeVipId);
-                const section = document.getElementById('myInvestmentSection');
-                section.classList.remove('hidden');
-                document.getElementById('activeVipDisplay').innerHTML = `
-                    <div class="bg-slate-900 p-4 rounded-2xl flex items-center gap-4 text-white shadow-xl">
-                        <img src="${myVip.img}" class="w-16 h-16 rounded-xl object-cover border-2 border-red-500">
-                        <div>
-                            <p class="text-[10px] font-black text-red-400 uppercase tracking-tighter">Équipement Actif</p>
-                            <h3 class="text-lg font-black italic">VIP ${myVip.id}</h3>
-                            <p class="text-[10px] opacity-80 font-bold italic">Production : FC ${myVip.jour.toLocaleString()} / jour</p>
+                if (myVip) {
+                    const section = document.getElementById('myInvestmentSection');
+                    section.classList.remove('hidden');
+                    document.getElementById('activeVipDisplay').innerHTML = `
+                        <div class="bg-slate-900 p-4 rounded-2xl flex items-center gap-4 text-white shadow-xl">
+                            <img src="${myVip.img}" class="w-16 h-16 rounded-xl object-cover border-2 border-red-500">
+                            <div>
+                                <p class="text-[10px] font-black text-red-400 uppercase tracking-tighter">Équipement Actif</p>
+                                <h3 class="text-lg font-black italic">VIP ${myVip.id}</h3>
+                                <p class="text-[10px] opacity-80 font-bold italic">Production : FC ${myVip.jour.toLocaleString()} / jour</p>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
             }
         }
 
