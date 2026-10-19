@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italien Shop - Connexion</title>
 
-    <!-- Lien vers le fichier Web App Manifest pour PWA -->
+    <!-- Configuration PWA pour Android -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#dc3545">
+    <link rel="apple-touch-icon" href="6AC676C8-BF3C-44E5-9A38-3E7BE943DF78.png">
 
     <style>
         /* Design Rouge et Blanc cohérent avec Inscription */
@@ -19,11 +20,11 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            height: 100vh; 
+            min-height: 100vh; 
         }
         .login-container { 
             background-color: white; 
-            padding: 40px 25px; 
+            padding: 35px 25px; 
             border-radius: 16px; 
             box-shadow: 0 10px 25px rgba(220, 53, 69, 0.1); 
             width: 90%; 
@@ -31,21 +32,30 @@
             text-align: center; 
             border-top: 5px solid #dc3545; 
         }
+        .app-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         h1 { 
             color: #dc3545; 
             margin-bottom: 5px; 
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 22px;
         }
         p { 
             color: #555; 
             margin-bottom: 25px; 
-            font-size: 15px; 
+            font-size: 14px; 
         }
         input { 
             width: 100%; 
             padding: 14px; 
-            margin: 12px 0; 
+            margin: 10px 0; 
             border: 1.5px solid #eee; 
             border-radius: 10px; 
             box-sizing: border-box; 
@@ -67,7 +77,7 @@
             font-size: 17px; 
             font-weight: bold; 
             cursor: pointer; 
-            margin-top: 20px; 
+            margin-top: 15px; 
             transition: background 0.3s;
         }
         button:hover {
@@ -92,6 +102,9 @@
 <body>
 
     <div class="login-container">
+        <!-- Affichage du logo de l'application -->
+        <img src="6AC676C8-BF3C-44E5-9A38-3E7BE943DF78.png" alt="Italien Shop Logo" class="app-logo">
+        
         <h1>Italien Shop</h1>
         <p>Connectez-vous à votre espace membre</p>
         
@@ -107,16 +120,16 @@
     </div>
 
     <script>
-        // Enregistrement du Service Worker pour permettre l'installation sur Android
+        // Activation du Service Worker pour permettre l'installation Android
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
-                    .then(reg => console.log('Service Worker enregistré !', reg))
-                    .catch(err => console.log('Erreur Service Worker :', err));
+                    .then(reg => console.log('Service Worker actif !'))
+                    .catch(err => console.error('Erreur Service Worker :', err));
             });
         }
 
-        // Utilisation de votre base de données Firebase
+        // Base de données Firebase
         const DB_URL = "https://alibaba-f22a0-default-rtdb.firebaseio.com/users";
 
         document.getElementById('loginForm').onsubmit = async function(e) {
@@ -137,7 +150,6 @@
                 } else if (user.password !== pass) {
                     alert("Mot de passe incorrect.");
                 } else {
-                    // Connexion réussie
                     localStorage.setItem('userPhone', phone);
                     window.location.href = "dashboard.html";
                 }
