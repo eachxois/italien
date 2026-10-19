@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italien Shop - Connexion</title>
+
+    <!-- Lien vers le fichier Web App Manifest pour PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#dc3545">
+
     <style>
         /* Design Rouge et Blanc cohérent avec Inscription */
         body { 
@@ -102,6 +107,15 @@
     </div>
 
     <script>
+        // Enregistrement du Service Worker pour permettre l'installation sur Android
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker enregistré !', reg))
+                    .catch(err => console.log('Erreur Service Worker :', err));
+            });
+        }
+
         // Utilisation de votre base de données Firebase
         const DB_URL = "https://alibaba-f22a0-default-rtdb.firebaseio.com/users";
 
