@@ -30,60 +30,56 @@
     <div class="p-5">
         <p class="text-[11px] font-black text-slate-400 uppercase mb-3 tracking-widest">1. Choisissez un montant (VIP)</p>
         <div class="grid grid-cols-2 gap-3 mb-8">
-            <!-- Liste des VIP inchangée -->
-            <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 8000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 1</p>
-                <p class="text-sm font-black text-slate-800">FC 8,000</p>
-            </div>
+            <!-- Liste mise à jour : l'ancien VIP 1 (8 000 FC) est supprimé, l'ancien VIP 2 (20 000 FC) devient VIP 1 -->
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 20000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 2</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 1</p>
                 <p class="text-sm font-black text-slate-800">FC 20,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 50000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 3</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 2</p>
                 <p class="text-sm font-black text-slate-800">FC 50,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 75000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 4</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 3</p>
                 <p class="text-sm font-black text-slate-800">FC 75,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 100000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 5</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 4</p>
                 <p class="text-sm font-black text-slate-800">FC 100,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 150000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 6</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 5</p>
                 <p class="text-sm font-black text-slate-800">FC 150,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 280000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 7</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 6</p>
                 <p class="text-sm font-black text-slate-800">FC 280,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 400000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 8</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 7</p>
                 <p class="text-sm font-black text-slate-800">FC 400,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 700000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 9</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 8</p>
                 <p class="text-sm font-black text-slate-800">FC 700,000</p>
             </div>
             <div class="amount-card p-3 rounded-xl text-center" onclick="selectAmount(this, 1000000)">
-                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 10</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase">VIP 9</p>
                 <p class="text-sm font-black text-slate-800">FC 1,000,000</p>
             </div>
         </div>
 
         <p class="text-[11px] font-black text-slate-400 uppercase mb-3 tracking-widest">2. Choisissez votre réseau</p>
         <div class="grid grid-cols-3 gap-2 mb-8">
-            <div class="network-card p-3 rounded-xl text-center flex flex-col items-center justify-center" onclick="selectNetwork(this, 'ORANGE', '+243852771755')">
+            <div class="network-card p-3 rounded-xl text-center flex flex-col items-center justify-center" onclick="selectNetwork(this, 'ORANGE', '0853240089')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg" alt="Orange" class="network-logo">
                 <p class="text-[9px] font-black uppercase">Orange</p>
             </div>
-            <div class="network-card p-3 rounded-xl text-center flex flex-col items-center justify-center" onclick="selectNetwork(this, 'AIRTEL', '+243984874123')">
+            <div class="network-card p-3 rounded-xl text-center flex flex-col items-center justify-center" onclick="selectNetwork(this, 'AIRTEL', '0981508254')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Airtel_logo.svg" alt="Airtel" class="network-logo">
                 <p class="text-[9px] font-black uppercase">Airtel</p>
             </div>
-            <div class="network-card p-3 rounded-xl text-center flex flex-col items-center justify-center" onclick="selectNetwork(this, 'VODACOM', '+243813944647')">
+            <div class="network-card p-3 rounded-xl text-center flex flex-col items-center justify-center" onclick="selectNetwork(this, 'VODACOM', '0812536259')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Vodacom_Logo.svg" alt="Vodacom" class="network-logo">
                 <p class="text-[9px] font-black uppercase">M-Pesa</p>
             </div>
